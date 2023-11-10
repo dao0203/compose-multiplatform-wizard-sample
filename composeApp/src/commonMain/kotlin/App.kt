@@ -2,6 +2,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -29,6 +30,12 @@ fun App() {
         var greetingText by remember { mutableStateOf(GREETING) }
         var showImage by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                "Today's date is ${todaysDate()}",
+                modifier = Modifier.padding(20.dp),
+                fontSize = 24.sp,
+                textAlign = TextAlign.Center
+            )
             Button(onClick = {
                 greetingText = "Compose on ${getPlatformName()}: $GREETING"
                 showImage = !showImage
